@@ -11,6 +11,9 @@ let Pet = new Schema({
     Description:{
         type: String
     },
+    Img:{
+        type: String
+    }
 }, {
     collection: 'Pets'
 })
