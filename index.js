@@ -16,7 +16,9 @@ mongoose.connect(mongoDb.db, {
     console.log('Database error: ' + error)
 })
 
-const PetRoute = require('./routes/pet.routes')
+const DogRoute = require('./routes/dog.routes')
+const CatRoute = require('./routes/cat.routes')
+const OtherRoute = require('./routes/other.routes')
 
 const app = express();
 app.use(bodyParser.json());
@@ -33,7 +35,9 @@ app.get('/', (req, res) => {
 })
 
 // API Root
-app.use('/api', PetRoute);
+app.use('/api', CatRoute);
+app.use('/api', DogRoute);
+app.use('/api', OtherRoute);
 
 // PORT 
 const port = process.env.PORT || 8000;

@@ -1,21 +1,24 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-let Pet = new Schema({
+let dog = new Schema({
+    id:{
+        type: String
+    },
     name:{
         type: String
     },
-    Age:{
+    age:{
         type: String
     },
-    Description:{
+    description:{
         type: String
     },
-    Img:{
+    img:{
         type: String
     }
 }, {
-    collection: 'Pets'
+    collection: 'Dogs'
 })
 
-module.exports = mongoose.model('Pet', Pet);
+module.exports = mongoose.model('dog', dog);
