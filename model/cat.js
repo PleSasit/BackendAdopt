@@ -16,7 +16,14 @@ let cat = new Schema({
     },
     img:{
         type: String
-    }
+    },
+    Mystory:{
+        type: String
+    },
+    Why:{
+        type: String
+    } 
+ 
 }, {
     collection: 'Cats'
 })

@@ -13,7 +13,7 @@ DogRoute.route('/add-Dog').post((req,res,next)=>{
     Dog.create(req.body).then(result=>{
         console.log(result,nextId)
         res.json(result)
-        }).Dogch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -31,7 +31,7 @@ DogRoute.route('/Dog/:id').get((req,res) =>{
     Dog.find({id:req.params.id}).then(result=>{
         console.log(...result)
         res.json(...result)
-        }).Dogch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -44,7 +44,7 @@ DogRoute.route('/update-Dog/:id').put((req,res,next)=>{
     console.log("Update Successful");
     res.json(req.body);
   })
-  .Dogch((err) => {
+  .catch((err) => {
     console.error(err);
   });
 })
@@ -62,7 +62,7 @@ DogRoute.route('/delete-Dog/:id').delete((req,res,next) =>{
             res.send('No user found with that ID');
         }
       })
-      .Dogch((err) => {
+      .catch((err) => {
         console.error(err);
       });
 })

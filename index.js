@@ -4,21 +4,22 @@ let express = require('express'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
     mongoDb = require('./database/db')
-
-
-mongoose.Promise = global.Promise;
-mongoose.connect(mongoDb.db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Database successfully connected');
-}, error => {
-    console.log('Database error: ' + error)
-})
-
-const DogRoute = require('./routes/dog.routes')
-const CatRoute = require('./routes/cat.routes')
-const OtherRoute = require('./routes/other.routes')
+    
+    mongoose.Promise = global.Promise;
+    mongoose.connect(mongoDb.db, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then(() => {
+        console.log('Database successfully connected');
+    }, error => {
+        console.log('Database error: ' + error)
+    })
+    
+    const DogRoute = require('./routes/dog.routes')
+    const CatRoute = require('./routes/cat.routes')
+    const OtherRoute = require('./routes/other.routes')
+    const ContactRoute = require('./routes/contact.routes')
+    const AdoptFormRoute = require('./routes/AdoptForm.routes')
 
 const app = express();
 app.use(bodyParser.json());
@@ -38,6 +39,8 @@ app.get('/', (req, res) => {
 app.use('/api', CatRoute);
 app.use('/api', DogRoute);
 app.use('/api', OtherRoute);
+app.use('/api', ContactRoute);
+app.use('/api', AdoptFormRoute);
 
 // PORT 
 const port = process.env.PORT || 8000;

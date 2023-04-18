@@ -13,7 +13,7 @@ CatRoute.route('/add-Cat').post((req,res,next)=>{
     Cat.create(req.body).then(result=>{
         console.log(result,nextId)
         res.json(result)
-        }).Catch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -31,7 +31,7 @@ CatRoute.route('/Cat/:id').get((req,res) =>{
     Cat.find({id:req.params.id}).then(result=>{
         console.log(...result)
         res.json(...result)
-        }).Catch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -44,7 +44,7 @@ CatRoute.route('/update-Cat/:id').put((req,res,next)=>{
     console.log("Update Successful");
     res.json(req.body);
   })
-  .Catch((err) => {
+  .catch((err) => {
     console.error(err);
   });
 })
@@ -62,7 +62,7 @@ CatRoute.route('/delete-Cat/:id').delete((req,res,next) =>{
             res.send('No user found with that ID');
         }
       })
-      .Catch((err) => {
+      .catch((err) => {
         console.error(err);
       });
 })

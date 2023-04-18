@@ -13,7 +13,7 @@ OtherRoute.route('/add-Other').post((req,res,next)=>{
     Other.create(req.body).then(result=>{
         console.log(result,nextId)
         res.json(result)
-        }).Otherch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -31,7 +31,7 @@ OtherRoute.route('/Other/:id').get((req,res) =>{
     Other.find({id:req.params.id}).then(result=>{
         console.log(...result)
         res.json(...result)
-        }).Otherch(err=>{
+        }).catch(err=>{
         console.log(err)
         res.send({err:"error ahhh"})
     })
@@ -44,7 +44,7 @@ OtherRoute.route('/update-Other/:id').put((req,res,next)=>{
     console.log("Update Successful");
     res.json(req.body);
   })
-  .Otherch((err) => {
+  .catch((err) => {
     console.error(err);
   });
 })
@@ -62,7 +62,7 @@ OtherRoute.route('/delete-Other/:id').delete((req,res,next) =>{
             res.send('No user found with that ID');
         }
       })
-      .Otherch((err) => {
+      .catch((err) => {
         console.error(err);
       });
 })
