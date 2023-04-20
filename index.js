@@ -21,6 +21,7 @@ let express = require('express'),
     const ContactRoute = require('./routes/contact.routes')
     const AdoptFormRoute = require('./routes/AdoptForm.routes')
     const DonateRoute = require('./routes/donate.routes')
+    const UserRoute = require('./routes/user.routes');
 
 const app = express();
 app.use(bodyParser.json());
@@ -43,6 +44,7 @@ app.use('/api', OtherRoute);
 app.use('/api', ContactRoute);
 app.use('/api', AdoptFormRoute);
 app.use('/api', DonateRoute);
+app.use('/api', UserRoute);
 
 // PORT 
 const port = process.env.PORT || 8000;
